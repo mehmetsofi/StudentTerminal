@@ -1,0 +1,19 @@
+<html>
+    <header>
+        <title> Title of the Page</title>
+        <center><h1 style="color:orange"> Title of the Page</h1></center>
+    </header>
+   <body style="background-color:black">
+    <center>
+
+
+      <form action="http://localhost:5000/targetMark" method="POST">
+          <h1 style="color:orange">{{module}}</h1>
+         <p style="color:orange">Target Mark <input type="text" name="targetMark" required/></p>
+          <p style="color:orange">Current Mark <input type="text" name="currentMark" value="{{ currentMark }}" /></p>
+          <p style="color:orange"> Marks Left <input type="text" name="marksLeft" value="{{ marksLeft }}" /></p>
+         <p style="color:orange"><input type="submit" value="submit" /></p>
+      </form>
+        </center>
+   </body>
+</html>

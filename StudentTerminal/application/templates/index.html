@@ -1,0 +1,58 @@
+{% block content %}
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Student Terminal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="static/css/main.css"/>
+  <link rel="stylesheet" href="static/css/jquery-ui.min.css"/>
+  <script src="static/js/jquery-ui.min.js"></script>
+
+</head>
+<body style="background-color: #000000;">
+  {% set cards = [{'title':'Your Trip to Uni', 'body':'distanceToKings.html', 'id':'distanceToKings', 'cardId':'distanceCard'},
+   {'title':'Weather', 'body':'weather.html', 'id':'weather', 'cardId':'weatherCard'},
+   {'title':'Marks Test', 'body':'marks_test.html', 'id':'marksTest', 'cardId':'marksCard'},
+   {'title':'Currency Exchange', 'body':'exchange.html', 'id':'exchange', 'cardId':'exchangeCard'}] %}
+<div class="container-fluid">
+  {% for card in cards %}
+  <div class="card text-white bg-dark mb-3 draggable" id="{{card['cardId']}}">
+    <div class="card-header">
+      <nav class="navbar navbar-dark bg-dark">
+        {{ card['title'] }}
+        <button class="btn btn-dark ml-auto home_link" home_link="{{card['id']}}">Home</button>
+        <button class="btn btn-dark my-2 my-sm-0" type="submit">X</button>
+      </nav>
+    </div>
+    <div class="card-body" id="{{card['id']}}">
+      {% with campuses=campuses %}
+        {% include card['body'] %}
+        {% endwith %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  $(function(){
+    $('.draggable').draggable({
+      containment : 'parent'
+    });
+    $('.draggable').resizable();
+    $('.buttonLink').click(function(){
+      $('#'+$(this).attr('parentId')).load($(this).attr('link'));
+    });
+    $('.home_link').click(function(){
+      $('#'+$(this).attr('home_link')).load($(this).attr('home_link'));
+    });
+  });
+</script>
+</body>
+</html>
+
+{% endblock %}

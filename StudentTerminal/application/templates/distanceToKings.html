@@ -1,0 +1,38 @@
+
+                  <style>
+                    .cbtn-group .button {
+                      background-color: #522795c4; /* Blue */
+                      border: 1px solid blue;
+                      color: white;
+                      padding: 15px 32px;
+                      text-align: center;
+                      text-decoration: none;
+                      font-size: 16px;
+                      cursor: pointer;
+                      width: 150px;
+                      display: block;
+                    }
+
+                    .cbtn-group .button:not(:last-child) {
+                      border-bottom: none; /* Prevent double borders */
+                    }
+
+                    .cbtn-group .button:hover {
+                      background-color: #361ccac4;
+                    }
+                    </style>
+        <!-- <p>Please Choose a campus to go to</p> -->
+        <div class = "cbtn-group" text-align:center; border-radius:3px;
+        padding-left:3px; >
+            <h2><center>Choose a Campus</center></h2>
+            {% for campus in campuses %}
+            <p><center><button class="button buttonLink" link="distanceToKings/{{campus.key}}" parentId="distanceToKings">{{campus.name}}</button></center></p>
+            {% endfor %}
+        </div>
+        <script>
+          $(function(){
+            $('.buttonLink').click(function(){
+              $('#'+$(this).attr('parentId')).load($(this).attr('link'));
+            });
+          });
+        </script>

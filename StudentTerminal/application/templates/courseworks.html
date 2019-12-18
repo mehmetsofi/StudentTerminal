@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title> Enter your achieved marks</title>
+
+    </header>
+   <body style="background-color:black">
+   <center><h1 style="color:orange"> Weightage of each coursework</h1></center>
+   <center>
+   <h1 style ="color:orange"> {{module}}</h1>
+      <form action="http://localhost:5000/requiredMark" method="POST">
+         {% for cw in range(courseworks) %}
+          <p style="color:orange">Coursework {{ cw + 1 }} Marks (out of 100) <input type="text" name="percentage{{ cw + 1 }}" required/></p>
+         <p style="color:orange">Coursework {{ cw + 1}} Total Worth<input type="text" name="totalWorth{{ cw + 1 }}" required/></p>
+          {% endfor %}
+         <p style="color:orange"><input type="submit" value="submit" /></p>
+      </form>
+   </center>
+   </body>
+</html>

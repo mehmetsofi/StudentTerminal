@@ -1,0 +1,17 @@
+<html>
+
+    <header>
+        <title> Title of the Page</title>
+    </header>
+   <body style="background-color:black">
+   <center><h1 style="color:orange"> Predict your grades</h1></center>
+
+   <center>
+      <form action="{{url_for('marks')}}" method="POST">
+         <p style="color:orange">Module <input type="text" name="module" required/></p>
+         <p style="color:orange">Number of Coursework due<input type="text" name="coursework" required/></p>
+         <p style="color:black"><input type="submit" value="submit" /></p>
+      </form>
+   </center>
+   </body>
+</html>

@@ -1,0 +1,33 @@
+{#{% import "..exchange_currency.py" %}#}
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+        <style>
+                table, tr, th, td  {
+
+                  padding-top: 50px;
+                  padding: 20px 15px;
+                  text-align: center;
+                }
+                table, tr, th, td {
+
+                }
+                {background-color: black;}
+                h1,h2,h3,h4,h5 {color:green;}
+                p ,th,tr {color:green;}
+            </style>
+       <center> <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table> </center>
+
+      <h2> Result of conversion : {{ money }} </h2>
+      <img src="{{"../static/" + filename + ".png"}}" alt="graph">
+   </body>
+</html>

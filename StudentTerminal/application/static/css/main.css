@@ -1,0 +1,42 @@
+.wrap{
+  width: 500px;
+  height: 400px;
+}
+.draggable{
+}
+
+.container-fluid {
+    height: 100vh;
+    overflow: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.container {
+    height: 100vh;
+    width: 100vh;
+    overflow: hidden;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.navbar{
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.card-header{
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+.card{
+  border-radius: 0px;
+  display: inline-block;
+}
+.shrinkWrap{
+  display: inline-block;
+  height: 400px;
+  width: 870px;
+}

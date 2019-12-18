@@ -1,0 +1,46 @@
+<html>
+   <body style="background-color:black;">
+
+
+      <div class="starter-template">
+            <style>
+                .starter-template, form {
+                  padding: 20px 15px;
+                  text-align: center;
+                }
+                {background-color: black;}
+                h1 {color:green;}
+                p {color:green;}
+            </style>
+        <h1>Currency Exchange</h1>
+        <p class="lead">Input the base currency symbol and the target as well <br>as the amount to see the exchange rate and the trend in currency</p>
+        <span style="color: green;">From Currency:</span> <select id="from" style="color: black;" name="from">
+          <option style="color: green;" value="EUR">EUR</option>
+          <option style="color: green;" value="GBP">GBP</option>
+          <option style="color: green;" value="USD">USD</option>
+        </select>
+        <br />
+        <span style="color: green;">To Currency:</span> <select id="target" style="color: black;" name="target">
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="USD">USD</option>
+        </select>
+        <p>Amount: <input style="color: black;" id="amount" type="number" name="amount" /></p>
+        <button id="convert" type="button" name="button" class="btn btn-success">Submit</button>
+      </div>
+
+
+      <script>
+      $(function(){
+        $('#convert').click(function(){
+          var data = {
+            from : $('#from').children("option:selected").val(),
+            target : $('#target').children("option:selected").val(),
+            amount : $('#amount').val()
+          }
+          $('#exchange').load('result', data);
+        });
+      });
+      </script>
+   </body>
+</html>
